@@ -9,8 +9,16 @@ loads that bundle and wires it up to Streamlit widgets.
 """
 
 import streamlit as st
+import sys
+
+st.write("Python:", sys.version)
+
+try:
+    import cloudpickle
+    st.write("Cloudpickle:", cloudpickle.__version__)
+except Exception as e:
+    st.write("Cloudpickle error:", e)
 import pandas as pd
-import cloudpickle
 import matplotlib.pyplot as plt
 import plotly.express as px
 
