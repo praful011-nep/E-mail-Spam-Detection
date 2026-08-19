@@ -1,20 +1,8 @@
-"""
-Spam Mail Classifier — Streamlit App
-
-UI only. Every bit of modeling logic — training, evaluation, and the
-predict_and_explain / predict_with_both_models functions themselves —
-lives in the notebook (spam_classifier_enhanced.ipynb), which exports
-them via cloudpickle to spam_classifier_artifacts.pkl. This file just
-loads that bundle and wires it up to Streamlit widgets.
-"""
-
 import streamlit as st
 import pandas as pd
 import cloudpickle
 import matplotlib.pyplot as plt
 import plotly.express as px
-
-
 
 @st.cache_resource
 def load_artifacts():
@@ -66,9 +54,7 @@ if compare_clicked:
     if not message.strip():
         st.warning("Please enter a message first.")
     else:
-        # -----------------------------------------------------------
-        # Side-by-side comparison: what each model says about THIS message
-        # -----------------------------------------------------------
+
         st.subheader("Model Comparison — Same Message, Both Models")
 
         both_results = predict_with_both_models(message)
@@ -103,9 +89,7 @@ if compare_clicked:
                 )
                 st.plotly_chart(pie_fig, use_container_width=True)
 
-        # -----------------------------------------------------------
-        # Overall test-set performance comparison (accuracy/precision/recall/F1)
-        # -----------------------------------------------------------
+
         st.markdown("---")
         st.subheader("Model Comparison — Overall Test Performance")
 
