@@ -7,6 +7,8 @@
       "openFiles": [
         "README.md",
         "requirements.txt",
+        "spam_classifier_enhanced.ipynb",
+        "spam_classifier_artifacts.pkl",
         "app.py"
       ]
     },
